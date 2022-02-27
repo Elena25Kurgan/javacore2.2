@@ -38,8 +38,8 @@ public class Main {
         List<String> listFamily2 = stream3
                 .filter(p -> p.getAge() > 18)
                 .filter(p -> p.getEducation() == Education.HIGHER)
-                .filter(p -> (p.getSex() == Sex.MAN) || p.getAge() < 65)
-                .filter(p -> (p.getSex() == Sex.WOMAN) || p.getAge() < 60)
+                .filter(p -> (p.getSex() == Sex.MAN && p.getAge() < 65) ||
+                             (p.getSex() == Sex.WOMAN && p.getAge() < 60))
                 .map(Person::getFamily)
                 .sorted(Comparator.naturalOrder())
                 .collect(Collectors.toList());
